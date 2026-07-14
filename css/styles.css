@@ -1,0 +1,199 @@
+/* --- Import des polices Google Fonts ---
+   Playfair Display : police expressive pour les titres
+   Poppins : police lisible pour le corps de texte        */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* --- Variables CSS (custom properties) ---
+   Toutes les couleurs et valeurs réutilisables sont ici
+   Pour changer le thème, on ne modifie qu'un seul endroit  */
+:root {
+  /* Couleurs principales */
+  --couleur-fond:       #FFFFFF;
+  --couleur-texte:      #1A1A2E;
+  --couleur-accent:     #E94560;      /* Rouge-rose vif pour les accents  */
+  --couleur-secondaire: #16213E;      /* Bleu nuit pour les fonds sombres */
+  --couleur-gris:       #F5F5F5;      /* Gris clair pour les fonds neutres */
+
+  /* Polices */
+  --police-titres: 'Playfair Display', serif;
+  --police-corps:  'Poppins', sans-serif;
+
+  /* Espacements */
+  --espace-sm:  0.75rem;
+  --espace-md:  1.5rem;
+  --espace-lg:  3rem;
+  --espace-xl:  6rem;
+
+  /* Bordures arrondies */
+  --rayon-sm:  6px;
+  --rayon-md:  12px;
+  --rayon-lg:  24px;
+
+  /* Hauteur de la navbar */
+  --hauteur-navbar: 70px;
+
+  /* Transition par défaut pour tous les éléments interactifs */
+  --transition: 0.3s ease;
+}
+
+/* --- Variables du Dark Mode ---
+   Quand JS ajoute [data-theme="dark"] sur le <html>,
+   ces variables remplacent automatiquement celles du :root  */
+[data-theme="dark"] {
+  --couleur-fond:       #0F0F1A;
+  --couleur-texte:      #E8E8F0;
+  --couleur-gris:       #1A1A2E;
+  --couleur-secondaire: #E94560;
+}
+
+/* --- Reset CSS ---
+   Supprime les marges et paddings par défaut du navigateur  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Styles de base du body --- */
+body {
+  font-family: var(--police-corps);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--couleur-texte);
+  background-color: var(--couleur-fond);
+  /* Compense la navbar fixe en haut */
+  padding-top: var(--hauteur-navbar);
+  /* Transition douce quand on change de thème */
+  transition: background-color var(--transition), color var(--transition);
+}
+
+/* Scroll fluide pour les ancres */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Images responsives par défaut */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Liens sans soulignement */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Listes sans puces */
+ul {
+  list-style: none;
+}
+
+/* Boutons : police héritée */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* --- Typographie ---
+   Titres h1 à h3 en Playfair Display    */
+h1, h2, h3 {
+  font-family: var(--police-titres);
+  line-height: 1.2;
+  color: var(--couleur-texte);
+}
+
+h1 { font-size: clamp(2rem, 6vw, 4rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.5rem); }
+h3 { font-size: 1.25rem; }
+
+/* Paragraphes */
+p {
+  color: var(--couleur-texte);
+  opacity: 0.85;
+  margin-bottom: var(--espace-sm);
+}
+
+/* --- Classe utilitaire : conteneur centré --- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--espace-md);
+}
+
+/* --- Classe utilitaire : section avec padding vertical --- */
+.section {
+  padding: var(--espace-xl) 0;
+}
+
+/* --- En-tête de section (label + titre + sous-titre) --- */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--espace-lg);
+}
+
+/* Petit label orange au-dessus du titre */
+.section-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--couleur-accent);
+  margin-bottom: var(--espace-sm);
+}
+
+.section-header h2 {
+  margin-bottom: var(--espace-sm);
+}
+
+/* --- Boutons réutilisables --- */
+
+/* Bouton principal (fond rouge) */
+.btn-principal {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: var(--couleur-accent);
+  color: #FFFFFF;
+  font-family: var(--police-corps);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--rayon-sm);
+  border: 2px solid var(--couleur-accent);
+  transition: background-color var(--transition),
+              transform var(--transition),
+              box-shadow var(--transition);
+}
+
+.btn-principal:hover {
+  background-color: #c73652;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(233, 69, 96, 0.35);
+}
+
+/* Bouton secondaire (contour rouge) */
+.btn-secondaire {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: transparent;
+  color: #FFFFFF;
+  font-family: var(--police-corps);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--rayon-sm);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  transition: border-color var(--transition),
+              background-color var(--transition),
+              transform var(--transition);
+}
+
+.btn-secondaire:hover {
+  border-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
