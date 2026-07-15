@@ -27,6 +27,90 @@
   <main>
     <h1>L'AfriConnect Summit 2026 vous souhaite la bienvenue !</h1>
   </main>
+     <!-- ============================================================
+     COMMIT 3 — NAVBAR
+     Navigation fixe, logo, 4 liens, dark mode, hamburger
+     ============================================================ -->
+<header>
+  <nav id="navbar">
+    <div class="container navbar-inner">
+ 
+      <!-- Logo -->
+      <a href="index.html" class="navbar-logo" aria-label="Retour accueil">
+        AfriConnect
+        <span>Summit 2026</span>
+      </a>
+ 
+      <!-- Liens desktop -->
+      <div class="navbar-liens">
+        <a href="index.html" class="actif">Accueil</a>
+        <a href="programme.html">Programme</a>
+        <a href="intervenants.html">Intervenants</a>
+        <a href="contact.html">Contact</a>
+        <!-- Bouton dark mode : JS change l'icone -->
+        <button id="toggle-theme" aria-label="Basculer mode sombre">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+      </div>
+ 
+      <!-- Hamburger mobile : JS ouvre/ferme le menu -->
+      <button id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+ 
+    </div>
+  </nav>
+</header>
+ 
+<main>
+
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-grille">
+ 
+      <div class="footer-col">
+        <h4>AfriConnect Summit</h4>
+        <p>Le rendez-vous annuel des acteurs du numérique africain. Dakar, novembre 2026.</p>
+        <div class="footer-reseaux">
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+ 
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html">Accueil</a><br>
+        <a href="programme.html">Programme</a><br>
+        <a href="intervenants.html">Intervenants</a><br>
+        <a href="contact.html">Contact &amp; Inscription</a>
+      </div>
+ 
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><i class="bi bi-envelope-fill"></i> contact@africonnect-summit.com</p>
+        <p><i class="bi bi-telephone-fill"></i> +221 77 000 00 00</p>
+        <p><i class="bi bi-geo-alt-fill"></i> Centre International de Conférences, Dakar</p>
+      </div>
+ 
+    </div>
+    <!-- Année dynamique : JS injecte l'année courante dans #annee -->
+    <div class="footer-bas">
+      <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin:0;">
+        &copy; <span id="annee"></span> AfriConnect Summit — Tous droits réservés
+      </p>
+      <a href="#" style="color:rgba(255,255,255,0.4);font-size:0.8rem;">Mentions légales</a>
+    </div>
+  </div>
+</footer>
+ 
+<!-- Bouton retour en haut : JS gère visibilité et scroll -->
+<button id="retour-haut" aria-label="Retour en haut de la page">
+  <i class="bi bi-arrow-up" aria-hidden="true"></i>
+</button>
+
 <script src="js/main.js"></script>
 </body>
 </html>

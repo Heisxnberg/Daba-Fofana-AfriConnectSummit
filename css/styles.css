@@ -191,9 +191,224 @@ p {
               background-color var(--transition),
               transform var(--transition);
 }
-
 .btn-secondaire:hover {
   border-color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
+}
+/* ============================================================
+   COMMIT 3 — Navbar & Footer
+   ============================================================ */
+ 
+/* --- NAVBAR --- */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--hauteur-navbar);
+  z-index: 1000;
+  background-color: var(--couleur-secondaire);
+  /* Transition pour le changement de style au scroll */
+  transition: background-color var(--transition), box-shadow var(--transition);
+}
+ 
+/* Classe ajoutée par JS quand l'utilisateur scroll de plus de 80px */
+#navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background-color: rgba(22, 33, 62, 0.97);
+}
+ 
+/* Intérieur de la navbar : logo à gauche, liens à droite */
+.navbar-inner {
+  display: flex;                    /* Flexbox usage 1 */
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+ 
+/* Logo */
+.navbar-logo {
+  font-family: var(--police-titres);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+ 
+/* Partie "Summit 2026" en accent */
+.navbar-logo span {
+  color: var(--couleur-accent);
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+ 
+/* Liens de navigation */
+.navbar-liens {
+  display: flex;                    /* Flexbox usage 2 */
+  align-items: center;
+  gap: var(--espace-md);
+}
+ 
+.navbar-liens a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+ 
+.navbar-liens a:hover,
+.navbar-liens a.actif {
+  color: var(--couleur-accent);
+}
+ 
+/* Bouton Dark Mode dans la navbar */
+#toggle-theme {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--rayon-sm);
+  transition: color var(--transition), background-color var(--transition);
+}
+ 
+#toggle-theme:hover {
+  color: var(--couleur-accent);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+ 
+/* Bouton hamburger mobile (caché sur desktop) */
+#burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.3rem;
+}
+ 
+#burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  transition: var(--transition);
+}
+ 
+/* --- FOOTER --- */
+footer {
+  background-color: var(--couleur-secondaire);
+  color: rgba(255, 255, 255, 0.75);
+  padding: var(--espace-lg) 0 var(--espace-md);
+}
+ 
+/* 3 colonnes en Flexbox */
+.footer-grille {
+  display: flex;                    /* Flexbox usage 3 */
+  gap: var(--espace-lg);
+  margin-bottom: var(--espace-md);
+}
+ 
+.footer-col h4 {
+  color: #FFFFFF;
+  font-family: var(--police-corps);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: var(--espace-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+ 
+.footer-col p,
+.footer-col a {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 2;
+  transition: color var(--transition);
+}
+ 
+.footer-col a:hover {
+  color: var(--couleur-accent);
+}
+ 
+/* Icônes réseaux sociaux */
+.footer-reseaux {
+  display: flex;
+  gap: var(--espace-sm);
+  margin-top: var(--espace-sm);
+}
+ 
+.footer-reseaux a {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color var(--transition), transform var(--transition);
+}
+ 
+.footer-reseaux a:hover {
+  color: var(--couleur-accent);
+  transform: translateY(-2px);
+}
+ 
+/* Ligne de copyright */
+.footer-bas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--espace-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+}
+ 
+/* Bouton retour en haut */
+#retour-haut {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  background-color: var(--couleur-accent);
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+  /* Caché par défaut */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity var(--transition), transform var(--transition);
+  z-index: 999;
+}
+ 
+/* Visible quand JS ajoute la classe .visible */
+#retour-haut.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+ 
+#retour-haut:hover {
+  background-color: #c73652;
+}
+ 
+/* --- Fil d'Ariane (breadcrumb) sur les pages internes --- */
+.fil-ariane {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: var(--espace-sm);
+}
+ 
+.fil-ariane a {
+  color: rgba(255, 255, 255, 0.6);
+  transition: color var(--transition);
+}
+ 
+.fil-ariane a:hover {
+  color: var(--couleur-accent);
+}
+ 
+.fil-ariane span {
+  color: var(--couleur-accent);
 }
