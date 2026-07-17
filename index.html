@@ -110,6 +110,224 @@
 <button id="retour-haut" aria-label="Retour en haut de la page">
   <i class="bi bi-arrow-up" aria-hidden="true"></i>
 </button>
+<!-- ============================================================
+       COMMIT 5 — SECTION HERO
+       Plein écran, H1, sous-titre, 2 boutons CTA, compte à rebours
+       ============================================================ -->
+  <section id="hero" class="hero">
+    <div class="hero-contenu">
+ 
+      <span class="hero-label">Événement annuel panafricain</span>
+ 
+      <!-- Titre principal obligatoire H1 -->
+      <h1>L'Afrique tech se réunit</h1>
+ 
+      <!-- Sous-titre avec lieu et dates fictives -->
+      <p class="hero-soustitre">
+        Dakar, Sénégal &mdash; 15, 16 &amp; 17 novembre 2026<br>
+        Développeurs · Entrepreneurs · Investisseurs
+      </p>
+ 
+      <!-- 2 boutons CTA -->
+      <div class="hero-boutons">
+        <a href="contact.html" class="btn-principal">Je m'inscris</a>
+        <a href="programme.html" class="btn-secondaire">Voir le programme</a>
+      </div>
+ 
+      <!-- Compte à rebours : JS met à jour chaque seconde -->
+      <div id="compte-rebours" class="compte-rebours">
+        <div class="compte-rebours-bloc">
+          <span id="cr-jours" class="compte-rebours-nombre">00</span>
+          <span class="compte-rebours-label">Jours</span>
+        </div>
+        <div class="compte-rebours-bloc">
+          <span id="cr-heures" class="compte-rebours-nombre">00</span>
+          <span class="compte-rebours-label">Heures</span>
+        </div>
+        <div class="compte-rebours-bloc">
+          <span id="cr-minutes" class="compte-rebours-nombre">00</span>
+          <span class="compte-rebours-label">Minutes</span>
+        </div>
+        <div class="compte-rebours-bloc">
+          <span id="cr-secondes" class="compte-rebours-nombre">00</span>
+          <span class="compte-rebours-label">Secondes</span>
+        </div>
+      </div>
+ 
+    </div>
+  </section>
+ 
+  <!-- ============================================================
+       CSS Grid 4 colonnes, compteurs JS animés au scroll
+       ============================================================ -->
+  <section class="section" style="background-color: var(--couleur-gris);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">AfriConnect en chiffres</span>
+        <h2>Une communauté qui grandit</h2>
+      </div>
+      <!-- CSS Grid usage 1 -->
+      <div class="chiffres-grille">
+        <div class="chiffre-carte fade-in">
+          <!-- data-cible = la valeur que JS va compter jusqu'à -->
+          <span class="chiffre-nombre" data-cible="1200">0</span>
+          <span class="chiffre-label">Participants</span>
+        </div>
+        <div class="chiffre-carte fade-in">
+          <span class="chiffre-nombre" data-cible="48">0</span>
+          <span class="chiffre-label">Intervenants</span>
+        </div>
+        <div class="chiffre-carte fade-in">
+          <span class="chiffre-nombre" data-cible="3">0</span>
+          <span class="chiffre-label">Jours de conférence</span>
+        </div>
+        <div class="chiffre-carte fade-in">
+          <span class="chiffre-nombre" data-cible="12">0</span>
+          <span class="chiffre-label">Pays représentés</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ============================================================
+       COMMIT 6 — POURQUOI PARTICIPER
+       3 arguments en Flexbox, animations au scroll
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Bonne question</span>
+        <h2>Pourquoi participer ?</h2>
+      </div>
+      <!-- Flexbox usage -->
+      <div class="pourquoi-grille">
+ 
+        <div class="pourquoi-carte fade-in">
+          <div class="pourquoi-icone">
+            <i class="bi bi-people-fill" aria-hidden="true"></i>
+          </div>
+          <h3>Rencontrer la communauté</h3>
+          <p>Échangez avec des milliers de développeurs, designers et entrepreneurs africains. Les meilleures opportunités naissent des bonnes rencontres.</p>
+        </div>
+ 
+        <div class="pourquoi-carte fade-in">
+          <div class="pourquoi-icone">
+            <i class="bi bi-lightbulb-fill" aria-hidden="true"></i>
+          </div>
+          <h3>Apprendre des meilleurs</h3>
+          <p>48 intervenants d'exception partagent leurs expériences, leurs outils et leurs visions pour l'Afrique tech de demain.</p>
+        </div>
+ 
+        <div class="pourquoi-carte fade-in">
+          <div class="pourquoi-icone">
+            <i class="bi bi-rocket-takeoff-fill" aria-hidden="true"></i>
+          </div>
+          <h3>Accélérer votre carrière</h3>
+          <p>Pitchez votre projet, trouvez des associés, dénichez des opportunités et faites grandir votre réseau professionnel.</p>
+        </div>
+ 
+      </div>
+    </div>
+  </section>
+ 
+  <!-- ============================================================
+       COMMIT 6 — INTERVENANTS VEDETTES
+       4 profils CSS Grid, hover, lien vers intervenants.html
+       ============================================================ -->
+  <section class="section" style="background-color: var(--couleur-gris);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">À ne pas manquer</span>
+        <h2>Intervenants vedettes</h2>
+      </div>
+      <!-- CSS Grid usage 2 -->
+      <div class="intervenants-grille">
+ 
+        <article class="intervenant-carte fade-in">
+          <img src="images/intervenant1.jpg"
+               alt="Aminata Koné, CEO AfriTech Ventures, Côte d'Ivoire"
+               class="intervenant-photo">
+          <p class="intervenant-nom">Aminata Koné</p>
+          <p class="intervenant-titre">CEO AfriTech Ventures</p>
+          <p class="intervenant-pays">🇨🇮 Côte d'Ivoire</p>
+        </article>
+ 
+        <article class="intervenant-carte fade-in">
+          <img src="images/intervenant2.jpg"
+               alt="Kwame Asante, Expert IA, Ghana"
+               class="intervenant-photo">
+          <p class="intervenant-nom">Kwame Asante</p>
+          <p class="intervenant-titre">Expert IA & Machine Learning</p>
+          <p class="intervenant-pays">🇬🇭 Ghana</p>
+        </article>
+ 
+        <article class="intervenant-carte fade-in">
+          <img src="images/intervenant3.jpg"
+               alt="Fatima El-Amine, Lead Designer UX, Maroc"
+               class="intervenant-photo">
+          <p class="intervenant-nom">Fatima El-Amine</p>
+          <p class="intervenant-titre">Lead Designer UX</p>
+          <p class="intervenant-pays">🇲🇦 Maroc</p>
+        </article>
+ 
+        <article class="intervenant-carte fade-in">
+          <img src="images/intervenant4.jpg"
+               alt="Oumar Sall, Investisseur Tech, Sénégal"
+               class="intervenant-photo">
+          <p class="intervenant-nom">Oumar Sall</p>
+          <p class="intervenant-titre">Investisseur Tech</p>
+          <p class="intervenant-pays">🇸🇳 Sénégal</p>
+        </article>
+ 
+      </div>
+      <div style="text-align:center; margin-top:2rem;">
+        <a href="intervenants.html" class="btn-principal fade-in">Voir tous les intervenants</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COMMIT 6 — SPONSORS
+       3 niveaux Or/Argent/Bronze, tailles différentes, Flexbox
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Ils nous soutiennent</span>
+        <h2>Nos sponsors</h2>
+      </div>
+      <div class="sponsors-niveaux">
+ 
+        <div class="sponsor-or fade-in">
+          <p class="sponsor-niveau-label">🥇 Or</p>
+          <div class="sponsor-rangee">
+            <div class="sponsor-carte">AfriBank</div>
+            <div class="sponsor-carte">TechSenegal</div>
+          </div>
+        </div>
+ 
+        <div class="sponsor-argent fade-in">
+          <p class="sponsor-niveau-label">🥈 Argent</p>
+          <div class="sponsor-rangee">
+            <div class="sponsor-carte">StartupCI</div>
+            <div class="sponsor-carte">DataAfrica</div>
+            <div class="sponsor-carte">MobilePay</div>
+          </div>
+        </div>
+ 
+        <div class="sponsor-bronze fade-in">
+          <p class="sponsor-niveau-label">🥉 Bronze</p>
+          <div class="sponsor-rangee">
+            <div class="sponsor-carte">CodeLab</div>
+            <div class="sponsor-carte">AfriCloud</div>
+            <div class="sponsor-carte">DevHub</div>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+  </section>
+ 
+</main>
 
 <script src="js/main.js"></script>
 </body>

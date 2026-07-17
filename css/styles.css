@@ -197,7 +197,7 @@ p {
   transform: translateY(-2px);
 }
 /* ============================================================
-   COMMIT 3 — Navbar & Footer
+   COMMIT 4 — Navbar & Footer
    ============================================================ */
  
 /* --- NAVBAR --- */
@@ -411,4 +411,355 @@ footer {
  
 .fil-ariane span {
   color: var(--couleur-accent);
+}
+/* ============================================================
+   COMMIT 5 — Page d'accueil : Hero, Chiffres, Pourquoi
+   ============================================================ */
+ 
+/* --- SECTION HERO (page d'accueil) --- */
+.hero {
+  min-height: 100vh;
+  background-color: var(--couleur-secondaire);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--espace-xl) var(--espace-md);
+  position: relative;
+  overflow: hidden;
+  /* On retire le padding-top du body pour cette section */
+  margin-top: calc(-1 * var(--hauteur-navbar));
+  padding-top: calc(var(--hauteur-navbar) + var(--espace-xl));
+}
+ 
+/* Cercle décoratif en fond */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(233,69,96,0.15), transparent 70%);
+  pointer-events: none;
+}
+ 
+/* Contenu du hero */
+.hero-contenu {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  /* Animation CSS au chargement de la page */
+  animation: apparition 0.8s ease both;
+}
+ 
+/* Animation d'apparition au chargement */
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ 
+/* Label au-dessus du H1 */
+.hero-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--couleur-accent);
+  margin-bottom: var(--espace-sm);
+}
+ 
+/* Titre principal du hero */
+.hero h1 {
+  color: #FFFFFF;
+  margin-bottom: var(--espace-sm);
+}
+ 
+/* Sous-titre avec lieu et dates */
+.hero-soustitre {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: var(--espace-md);
+}
+ 
+/* Groupe de boutons CTA */
+.hero-boutons {
+  display: flex;
+  gap: var(--espace-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--espace-lg);
+}
+ 
+/* --- COMPTE À REBOURS --- */
+.compte-rebours {
+  display: flex;
+  gap: var(--espace-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--espace-md);
+}
+ 
+/* Chaque bloc (jours / heures / min / sec) */
+.compte-rebours-bloc {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+ 
+/* Le nombre */
+.compte-rebours-nombre {
+  font-family: var(--police-titres);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--couleur-accent);
+  line-height: 1;
+}
+ 
+/* Le label sous le nombre */
+.compte-rebours-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.3rem;
+}
+ 
+/* --- SECTION CHIFFRES CLÉS --- */
+.chiffres-grille {
+  display: grid;                              /* CSS Grid usage 1 */
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--espace-md);
+}
+ 
+/* Chaque carte de chiffre */
+.chiffre-carte {
+  text-align: center;
+  padding: var(--espace-md);
+  background-color: var(--couleur-gris);
+  border-radius: var(--rayon-md);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+ 
+.chiffre-carte:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+ 
+/* Le grand nombre animé par JS */
+.chiffre-nombre {
+  font-family: var(--police-titres);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--couleur-accent);
+  display: block;
+}
+ 
+/* Le texte sous le nombre */
+.chiffre-label {
+  font-size: 0.9rem;
+  color: var(--couleur-texte);
+  opacity: 0.7;
+}
+ 
+/* --- SECTION POURQUOI PARTICIPER --- */
+.pourquoi-grille {
+  display: flex;                    /* Flexbox usage 4 */
+  gap: var(--espace-md);
+  flex-wrap: wrap;
+}
+ 
+/* Chaque argument */
+.pourquoi-carte {
+  flex: 1;
+  min-width: 250px;
+  padding: var(--espace-md);
+  background-color: var(--couleur-gris);
+  border-radius: var(--rayon-md);
+  border-left: 4px solid var(--couleur-accent);
+  transition: transform var(--transition);
+}
+ 
+.pourquoi-carte:hover {
+  transform: translateY(-3px);
+}
+ 
+/* Icône de la carte */
+.pourquoi-icone {
+  font-size: 2rem;
+  color: var(--couleur-accent);
+  margin-bottom: var(--espace-sm);
+}
+ 
+.pourquoi-carte h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+/* ============================================================
+   COMMIT 6 — Intervenants, Sponsors, Animations scroll
+   ============================================================ */
+ 
+/* --- SECTION INTERVENANTS VEDETTES (accueil) --- */
+.intervenants-grille {
+  display: grid;                              /* CSS Grid usage 2 */
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--espace-md);
+}
+ 
+/* Carte intervenant */
+.intervenant-carte {
+  background-color: var(--couleur-gris);
+  border-radius: var(--rayon-md);
+  padding: var(--espace-md) var(--espace-sm);
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+ 
+.intervenant-carte:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+ 
+/* Photo circulaire */
+.intervenant-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto var(--espace-sm);
+  border: 3px solid var(--couleur-accent);
+}
+ 
+.intervenant-nom {
+  font-family: var(--police-titres);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+ 
+.intervenant-titre {
+  font-size: 0.82rem;
+  color: var(--couleur-accent);
+  font-weight: 500;
+}
+ 
+.intervenant-pays {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-top: 0.2rem;
+}
+ 
+/* --- SECTION SPONSORS --- */
+ 
+/* Les 3 niveaux en Flexbox */
+.sponsors-niveaux {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-md);
+}
+ 
+/* Label du niveau (Or / Argent / Bronze) */
+.sponsor-niveau-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: var(--espace-sm);
+  color: var(--couleur-texte);
+  opacity: 0.6;
+}
+ 
+/* Rangée de logos sponsors */
+.sponsor-rangee {
+  display: flex;                    /* Flexbox usage 5 */
+  gap: var(--espace-md);
+  flex-wrap: wrap;
+  align-items: center;
+}
+ 
+/* Carte sponsor */
+.sponsor-carte {
+  background-color: var(--couleur-gris);
+  border-radius: var(--rayon-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--couleur-texte);
+  opacity: 0.7;
+  transition: opacity var(--transition), transform var(--transition);
+}
+ 
+.sponsor-carte:hover {
+  opacity: 1;
+  transform: scale(1.03);
+}
+ 
+/* Taille Or (grand) */
+.sponsor-or .sponsor-carte {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.2rem;
+}
+ 
+/* Taille Argent (moyen) */
+.sponsor-argent .sponsor-carte {
+  padding: 0.9rem 1.8rem;
+  font-size: 1rem;
+}
+ 
+/* Taille Bronze (petit) */
+.sponsor-bronze .sponsor-carte {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.85rem;
+}
+ 
+/* --- ANIMATIONS AU SCROLL ---
+   Les éléments avec .fade-in partent invisible
+   Le JS ajoute .visible quand ils entrent dans le viewport  */
+.fade-in {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+ 
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+ 
+/* Délais en cascade pour les grilles */
+.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.fade-in:nth-child(3) { transition-delay: 0.2s; }
+.fade-in:nth-child(4) { transition-delay: 0.3s; }
+ 
+/* Respect de prefers-reduced-motion (accessibilité) */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+ 
+/* --- HERO INTERNE (pages programme, intervenants, contact) --- */
+.hero-interne {
+  background-color: var(--couleur-secondaire);
+  padding: calc(var(--hauteur-navbar) + var(--espace-lg)) var(--espace-md) var(--espace-lg);
+  text-align: center;
+  margin-top: calc(-1 * var(--hauteur-navbar));
+}
+ 
+.hero-interne h1 {
+  color: #FFFFFF;
+  margin-bottom: var(--espace-sm);
 }
