@@ -25,6 +25,322 @@
 <main>
     <h1>Decouvrez le programme de l'AfriConnect Summit 2026</h1>
   </main>
+  <!-- ============================================================
+     NAVBAR (identique sur toutes les pages)
+     Seul le lien "actif" change selon la page courante
+     ============================================================ -->
+<header>
+  <nav id="navbar">
+    <div class="container navbar-inner">
+      <a href="index.html" class="navbar-logo" aria-label="Retour accueil">
+        AfriConnect <span>Summit 2026</span>
+      </a>
+      <div class="navbar-liens">
+        <a href="index.html">Accueil</a>
+        <a href="programme.html" class="actif">Programme</a>
+        <a href="intervenants.html">Intervenants</a>
+        <a href="contact.html">Contact</a>
+        <button id="toggle-theme" aria-label="Basculer mode sombre">
+          <i class="bi bi-moon-fill"></i>
+        </button>
+      </div>
+      <button id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============================================================
+       COMMIT 7 — HERO INTERNE
+       Bannière, H1, fil d'Ariane (Accueil > Programme)
+       ============================================================ -->
+  <section class="hero-interne">
+    <div class="container">
+      <h1>Programme</h1>
+      <!-- Fil d'Ariane -->
+      <nav class="fil-ariane" aria-label="Fil d'Ariane">
+        <a href="index.html">Accueil</a>
+        &rsaquo;
+        <span>Programme</span>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COMMIT 7 — ONGLETS 3 JOURS
+       3 boutons d'onglets, JS affiche/cache les panneaux
+       Minimum 5 sessions par jour, alternance de couleurs CSS
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+
+      <div class="section-header fade-in">
+        <span class="section-label">3 jours de contenu</span>
+        <h2>Le programme complet</h2>
+        <p>Cliquez sur un jour pour voir les sessions prévues.</p>
+      </div>
+
+      <!-- Navigation onglets : JS lit data-onglet pour trouver le panneau -->
+      <div class="onglets-nav" role="tablist">
+        <button class="onglet-btn" data-onglet="jour1" role="tab" aria-selected="true">Jour 1 — 15 nov.</button>
+        <button class="onglet-btn" data-onglet="jour2" role="tab" aria-selected="false">Jour 2 — 16 nov.</button>
+        <button class="onglet-btn" data-onglet="jour3" role="tab" aria-selected="false">Jour 3 — 17 nov.</button>
+      </div>
+
+      <!-- Panneau Jour 1 -->
+      <div id="jour1" class="onglet-panneau" role="tabpanel">
+        <table class="tableau-programme">
+          <thead>
+            <tr>
+              <th>Heure</th>
+              <th>Session</th>
+              <th>Intervenant</th>
+              <th>Salle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="heure">09h00</td>
+              <td>Cérémonie d'ouverture officielle</td>
+              <td>Comité d'organisation</td>
+              <td>Grande salle</td>
+            </tr>
+            <tr>
+              <td class="heure">10h00</td>
+              <td>Keynote : L'Afrique numérique en 2030</td>
+              <td>Aminata Koné</td>
+              <td>Grande salle</td>
+            </tr>
+            <tr>
+              <td class="heure">11h30</td>
+              <td>Panel : Startups africaines, où en est-on ?</td>
+              <td>Oumar Sall + 3 invités</td>
+              <td>Salle A</td>
+            </tr>
+            <tr>
+              <td class="heure">13h00</td>
+              <td>Pause déjeuner &amp; networking</td>
+              <td>—</td>
+              <td>Hall principal</td>
+            </tr>
+            <tr>
+              <td class="heure">14h30</td>
+              <td>Workshop : Construire une API en 2h</td>
+              <td>Kwame Asante</td>
+              <td>Salle Tech</td>
+            </tr>
+            <tr>
+              <td class="heure">16h30</td>
+              <td>Table ronde : Financement des projets tech</td>
+              <td>Investisseurs panélistes</td>
+              <td>Salle B</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Panneau Jour 2 -->
+      <div id="jour2" class="onglet-panneau" role="tabpanel">
+        <table class="tableau-programme">
+          <thead>
+            <tr>
+              <th>Heure</th>
+              <th>Session</th>
+              <th>Intervenant</th>
+              <th>Salle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="heure">09h00</td>
+              <td>Keynote : Intelligence artificielle &amp; Afrique</td>
+              <td>Kwame Asante</td>
+              <td>Grande salle</td>
+            </tr>
+            <tr>
+              <td class="heure">10h30</td>
+              <td>Design pour l'Afrique : UX locale d'abord</td>
+              <td>Fatima El-Amine</td>
+              <td>Salle Design</td>
+            </tr>
+            <tr>
+              <td class="heure">12h00</td>
+              <td>Démonstrations de projets étudiants</td>
+              <td>Participants sélectionnés</td>
+              <td>Salle C</td>
+            </tr>
+            <tr>
+              <td class="heure">13h00</td>
+              <td>Pause déjeuner &amp; networking</td>
+              <td>—</td>
+              <td>Hall principal</td>
+            </tr>
+            <tr>
+              <td class="heure">14h30</td>
+              <td>Workshop : Data analysis avec Python</td>
+              <td>Kofi Mensah</td>
+              <td>Salle Tech</td>
+            </tr>
+            <tr>
+              <td class="heure">17h00</td>
+              <td>Soirée networking officielle</td>
+              <td>Tous les participants</td>
+              <td>Terrasse</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Panneau Jour 3 -->
+      <div id="jour3" class="onglet-panneau" role="tabpanel">
+        <table class="tableau-programme">
+          <thead>
+            <tr>
+              <th>Heure</th>
+              <th>Session</th>
+              <th>Intervenant</th>
+              <th>Salle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="heure">09h00</td>
+              <td>Keynote de clôture : Ce qui change aujourd'hui</td>
+              <td>Oumar Sall</td>
+              <td>Grande salle</td>
+            </tr>
+            <tr>
+              <td class="heure">10h30</td>
+              <td>Pitches startups : 5 minutes pour convaincre</td>
+              <td>10 startups sélectionnées</td>
+              <td>Grande salle</td>
+            </tr>
+            <tr>
+              <td class="heure">12h00</td>
+              <td>Annonce des lauréats AfriConnect Awards</td>
+              <td>Jury officiel</td>
+              <td>Grande salle</td>
+            </tr>
+            <tr>
+              <td class="heure">13h00</td>
+              <td>Déjeuner de clôture</td>
+              <td>—</td>
+              <td>Restaurant</td>
+            </tr>
+            <tr>
+              <td class="heure">15h00</td>
+              <td>Session libre : mentoring 1-à-1</td>
+              <td>Tous les intervenants</td>
+              <td>Espaces dédiés</td>
+            </tr>
+            <tr>
+              <td class="heure">17h00</td>
+              <td>Cérémonie de clôture officielle</td>
+              <td>Comité d'organisation</td>
+              <td>Grande salle</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COMMIT 7 — THÉMATIQUES
+       4 thèmes en CSS Grid 2×2, animations au scroll
+       ============================================================ -->
+  <section class="section" style="background-color: var(--couleur-gris);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-label">Les grands thèmes</span>
+        <h2>Thématiques de la conférence</h2>
+      </div>
+      <!-- CSS Grid 2 colonnes × 2 lignes -->
+      <div class="thematiques-grille">
+
+        <article class="thematique-carte fade-in">
+          <div class="thematique-icone">
+            <i class="bi bi-cpu-fill" aria-hidden="true"></i>
+          </div>
+          <h3>IA &amp; Tech</h3>
+          <p>Intelligence artificielle, machine learning, automatisation — comment ces technologies changent l'Afrique concrètement.</p>
+        </article>
+
+        <article class="thematique-carte fade-in">
+          <div class="thematique-icone">
+            <i class="bi bi-briefcase-fill" aria-hidden="true"></i>
+          </div>
+          <h3>Business &amp; Entrepreneuriat</h3>
+          <p>Créer, financer et scaler une startup africaine. Retours d'expérience de fondateurs qui l'ont fait.</p>
+        </article>
+
+        <article class="thematique-carte fade-in">
+          <div class="thematique-icone">
+            <i class="bi bi-palette-fill" aria-hidden="true"></i>
+          </div>
+          <h3>Design &amp; Expérience</h3>
+          <p>Concevoir des produits adaptés aux réalités africaines : accessibilité, langues locales, contraintes réseau.</p>
+        </article>
+
+        <article class="thematique-carte fade-in">
+          <div class="thematique-icone">
+            <i class="bi bi-bar-chart-fill" aria-hidden="true"></i>
+          </div>
+          <h3>Data &amp; Impact</h3>
+          <p>Exploiter les données pour prendre de meilleures décisions et créer un impact réel sur le continent.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER identique -->
+<footer>
+  <div class="container">
+    <div class="footer-grille">
+      <div class="footer-col">
+        <h4>AfriConnect Summit</h4>
+        <p>Le rendez-vous annuel des acteurs du numérique africain. Dakar, novembre 2026.</p>
+        <div class="footer-reseaux">
+          <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html">Accueil</a><br>
+        <a href="programme.html">Programme</a><br>
+        <a href="intervenants.html">Intervenants</a><br>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p><i class="bi bi-envelope-fill"></i> contact@africonnect-summit.com</p>
+        <p><i class="bi bi-geo-alt-fill"></i> Dakar, Sénégal</p>
+      </div>
+    </div>
+    <div class="footer-bas">
+      <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin:0;">
+        &copy; <span id="annee"></span> AfriConnect Summit
+      </p>
+    </div>
+  </div>
+</footer>
+
+<button id="retour-haut" aria-label="Retour en haut">
+  <i class="bi bi-arrow-up" aria-hidden="true"></i>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
 <script src="js/main.js"></script>
 </body>
 </html>
