@@ -764,313 +764,110 @@ footer {
   margin-bottom: var(--espace-sm);
 }
 /* ============================================================
-   COMMIT 7 — Page Programme : onglets + tableau + thématiques
+   COMMIT 8 — Responsive : media queries mobile et tablette
    ============================================================ */
  
-/* --- ONGLETS DES 3 JOURS --- */
-.onglets-nav {
-  display: flex;
-  gap: var(--espace-sm);
-  margin-bottom: var(--espace-md);
-  border-bottom: 2px solid var(--couleur-gris);
-  padding-bottom: 0;
+/* --- TABLETTE (≤ 900px) --- */
+@media (max-width: 900px) {
+ 
+  /* Grille intervenants : 2 colonnes */
+  .intervenants-grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ 
+  /* Grille chiffres : 2 colonnes */
+  .chiffres-grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ 
+  /* Footer : colonne unique */
+  .footer-grille {
+    flex-direction: column;
+    gap: var(--espace-md);
+  }
+ 
+  /* Contact : colonne unique */
+  .contact-conteneur {
+    flex-direction: column;
+  }
+ 
+  /* Intervenants complets : 2 colonnes */
+  .intervenants-grille-complete {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
  
-/* Bouton d'onglet */
-.onglet-btn {
-  padding: 0.7rem 1.5rem;
-  font-family: var(--police-corps);
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: var(--couleur-texte);
-  border-radius: var(--rayon-sm) var(--rayon-sm) 0 0;
-  border-bottom: 3px solid transparent;
-  transition: color var(--transition), border-color var(--transition);
-  opacity: 0.6;
+/* --- MOBILE (≤ 600px) --- */
+@media (max-width: 600px) {
+ 
+  /* Navbar : affiche le burger, cache les liens */
+  .navbar-liens {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: var(--hauteur-navbar);
+    left: 0;
+    width: 100%;
+    background-color: var(--couleur-secondaire);
+    padding: var(--espace-md);
+    gap: var(--espace-sm);
+  }
+ 
+  /* Quand JS ajoute .ouvert sur la navbar */
+  #navbar.ouvert .navbar-liens {
+    display: flex;
+  }
+ 
+  /* Affiche le burger sur mobile */
+  #burger {
+    display: flex;
+  }
+ 
+  /* Hero : titre plus petit */
+  .hero h1 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+ 
+  /* Boutons CTA empilés */
+  .hero-boutons {
+    flex-direction: column;
+    align-items: center;
+  }
+ 
+  /* Chiffres clés : 1 colonne */
+  .chiffres-grille {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* Pourquoi : 1 colonne */
+  .pourquoi-grille {
+    flex-direction: column;
+  }
+ 
+  /* Intervenants : 1 colonne */
+  .intervenants-grille,
+  .intervenants-grille-complete {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* Thématiques : 1 colonne */
+  .thematiques-grille {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* Tableau : scroll horizontal */
+  .tableau-programme {
+    display: block;
+    overflow-x: auto;
+  }
+ 
+  /* Compte à rebours : espacement réduit */
+  .compte-rebours {
+    gap: var(--espace-sm);
+  }
+ 
+  .compte-rebours-nombre {
+    font-size: 1.8rem;
+  }
 }
  
-/* Onglet actif — classe .actif ajoutée par JS */
-.onglet-btn.actif {
-  color: var(--couleur-accent);
-  border-bottom-color: var(--couleur-accent);
-  opacity: 1;
-  font-weight: 600;
-}
- 
-.onglet-btn:hover {
-  opacity: 1;
-  color: var(--couleur-accent);
-}
- 
-/* Panneaux de contenu des onglets */
-.onglet-panneau {
-  display: none;  /* Caché par défaut */
-}
- 
-/* Panneau actif — classe .actif ajoutée par JS */
-.onglet-panneau.actif {
-  display: block;
-}
- 
-/* --- TABLEAU DU PROGRAMME --- */
-.tableau-programme {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
- 
-.tableau-programme th {
-  background-color: var(--couleur-accent);
-  color: #FFFFFF;
-  padding: 0.8rem 1rem;
-  text-align: left;
-  font-weight: 600;
-}
- 
-.tableau-programme td {
-  padding: 0.8rem 1rem;
-  border-bottom: 1px solid var(--couleur-gris);
-}
- 
-/* Alternance de couleurs sur les lignes */
-.tableau-programme tr:nth-child(even) {
-  background-color: var(--couleur-gris);
-}
- 
-.tableau-programme tr:hover {
-  background-color: rgba(233, 69, 96, 0.05);
-}
- 
-/* Colonne Heure en gras et accent */
-.tableau-programme .heure {
-  font-weight: 600;
-  color: var(--couleur-accent);
-  white-space: nowrap;
-}
- 
-/* --- SECTION THÉMATIQUES (programme) --- */
-.thematiques-grille {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);   /* CSS Grid 2x2 */
-  gap: var(--espace-md);
-}
- 
-.thematique-carte {
-  padding: var(--espace-md);
-  background-color: var(--couleur-gris);
-  border-radius: var(--rayon-md);
-  transition: transform var(--transition);
-}
- 
-.thematique-carte:hover {
-  transform: translateY(-3px);
-}
- 
-.thematique-icone {
-  font-size: 2rem;
-  color: var(--couleur-accent);
-  margin-bottom: var(--espace-sm);
-}
- 
-.thematique-carte h3 {
-  margin-bottom: 0.5rem;
-}
-/* ============================================================
-   COMMIT 7 — Page Intervenants + Page Contact
-   ============================================================ */
- 
-/* --- FILTRES INTERVENANTS --- */
-.filtres {
-  display: flex;
-  gap: var(--espace-sm);
-  flex-wrap: wrap;
-  margin-bottom: var(--espace-md);
-  justify-content: center;
-}
- 
-/* Bouton de filtre */
-.filtre-btn {
-  padding: 0.45rem 1.2rem;
-  border-radius: 99px;  /* Pill shape */
-  border: 2px solid var(--couleur-gris);
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--couleur-texte);
-  background-color: var(--couleur-fond);
-  transition: all var(--transition);
-}
- 
-/* Bouton filtre actif */
-.filtre-btn.actif,
-.filtre-btn:hover {
-  background-color: var(--couleur-accent);
-  border-color: var(--couleur-accent);
-  color: #FFFFFF;
-}
- 
-/* Grille intervenants complète (9 profils) */
-.intervenants-grille-complete {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--espace-md);
-}
- 
-/* Carte cachée lors du filtrage */
-.intervenant-carte.cache {
-  display: none;
-}
- 
-/* --- FORMULAIRE DE CONTACT --- */
-.contact-conteneur {
-  display: flex;                    /* Flexbox usage 6 */
-  gap: var(--espace-lg);
-  align-items: flex-start;
-}
- 
-/* Formulaire à gauche */
-.formulaire-conteneur {
-  flex: 2;
-  background-color: var(--couleur-gris);
-  padding: var(--espace-md);
-  border-radius: var(--rayon-md);
-}
- 
-/* Informations à droite */
-.contact-infos {
-  flex: 1;
-}
- 
-/* Labels du formulaire */
-.formulaire-conteneur label {
-  display: block;
-  font-size: 0.88rem;
-  font-weight: 500;
-  margin-bottom: 0.3rem;
-  color: var(--couleur-texte);
-}
- 
-/* Champs texte, select, textarea */
-.formulaire-conteneur input,
-.formulaire-conteneur select,
-.formulaire-conteneur textarea {
-  width: 100%;
-  padding: 0.7rem 1rem;
-  border: 2px solid transparent;
-  border-radius: var(--rayon-sm);
-  font-family: var(--police-corps);
-  font-size: 0.9rem;
-  color: var(--couleur-texte);
-  background-color: var(--couleur-fond);
-  margin-bottom: var(--espace-sm);
-  transition: border-color var(--transition), box-shadow var(--transition);
-}
- 
-.formulaire-conteneur input:focus,
-.formulaire-conteneur select:focus,
-.formulaire-conteneur textarea:focus {
-  outline: none;
-  border-color: var(--couleur-accent);
-  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.15);
-}
- 
-/* Champ valide (bordure verte) */
-.formulaire-conteneur input.valide,
-.formulaire-conteneur select.valide,
-.formulaire-conteneur textarea.valide {
-  border-color: #27AE60;
-}
- 
-/* Champ invalide (bordure rouge) */
-.formulaire-conteneur input.invalide,
-.formulaire-conteneur select.invalide,
-.formulaire-conteneur textarea.invalide {
-  border-color: #E74C3C;
-}
- 
-/* Message d'erreur sous un champ */
-.message-erreur {
-  display: block;
-  font-size: 0.8rem;
-  color: #E74C3C;
-  margin-top: -0.6rem;
-  margin-bottom: var(--espace-sm);
-}
- 
-/* Message de succès après soumission */
-#message-succes {
-  display: none;  /* Caché par défaut, affiché par JS */
-  padding: var(--espace-sm) var(--espace-md);
-  background-color: #D4EDDA;
-  color: #155724;
-  border-radius: var(--rayon-sm);
-  margin-top: var(--espace-sm);
-  font-weight: 500;
-}
- 
-/* Google Maps */
-.carte-maps {
-  width: 100%;
-  height: 300px;
-  border-radius: var(--rayon-md);
-  border: none;
-  margin-top: var(--espace-md);
-}
- 
-/* --- FAQ ACCORDÉON CSS PUR ---
-   Fonctionne uniquement avec :checked et <input type="checkbox">
-   Aucun JavaScript utilisé pour cette partie               */
- 
-.faq-item {
-  border-bottom: 1px solid var(--couleur-gris);
-}
- 
-/* On cache la checkbox mais on la garde fonctionnelle */
-.faq-item input[type="checkbox"] {
-  display: none;
-}
- 
-/* Label = question cliquable */
-.faq-question {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--espace-sm) 0;
-  cursor: pointer;
-  font-weight: 500;
-  color: var(--couleur-texte);
-  transition: color var(--transition);
-  user-select: none;
-}
- 
-.faq-question:hover {
-  color: var(--couleur-accent);
-}
- 
-/* Icône + qui tourne en × quand ouvert */
-.faq-icone {
-  font-size: 1.3rem;
-  color: var(--couleur-accent);
-  transition: transform var(--transition);
-  line-height: 1;
-}
- 
-/* La réponse : cachée par défaut (hauteur 0) */
-.faq-reponse {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding var(--transition);
-  padding: 0;
-  font-size: 0.92rem;
-  opacity: 0.85;
-}
- 
-/* Quand la checkbox est cochée : on affiche la réponse */
-.faq-item input:checked ~ .faq-reponse {
-  max-height: 300px;
-  padding-bottom: var(--espace-sm);
-}
- 
-/* L'icône tourne */
-.faq-item input:checked ~ .faq-question .faq-icone {
-  transform: rotate(45deg);
-}
